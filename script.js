@@ -1,7 +1,4 @@
-// Youtube api key: AIzaSyDZ76_4xh5c5tRRPhgt1pQyPC5dxAdj3T4
-// https://www.googleapis.com/youtube/v3/videos?id=7lCDEYXw3mM&key=AIzaSyBaW7C70KBRCLgWbBojggYmd9Ec1wbIa_k&part=snippet,contentDetails,statistics,status
-
-var apiKey = "AIzaSyDZ76_4xh5c5tRRPhgt1pQyPC5dxAdj3T4"
+function createVideoPlayer () {
 // 2. This code loads the IFrame Player API code asynchronously.
 var tag = document.createElement('script');
 
@@ -32,8 +29,11 @@ function onYouTubeIframeAPIReady() {
  function onPlayerReady(event) {
     event.target.playVideo();
   }
+};
 
 
+
+  var apiKey = "AIzaSyDZ76_4xh5c5tRRPhgt1pQyPC5dxAdj3T4"
 var searchQuery = 'Wolf of Wall Street';
 // YouTube API key
 var API_KEY = 'AIzaSyDZ76_4xh5c5tRRPhgt1pQyPC5dxAdj3T4';
@@ -41,6 +41,7 @@ var API_KEY = 'AIzaSyDZ76_4xh5c5tRRPhgt1pQyPC5dxAdj3T4';
 // Replace <SEARCH_QUERY> with the keywords or phrases that you want to search for
 var SEARCH_QUERY = 'Wolf of Wall Street' + ' movie trailer';
 
+function searchMovieId() {
 // Make a search request to the YouTube API
 fetch(`https://www.googleapis.com/youtube/v3/search?part=id&q=${SEARCH_QUERY}&type=video&maxResults=10&key=${API_KEY}`)
   .then(response => response.json())
@@ -49,6 +50,14 @@ fetch(`https://www.googleapis.com/youtube/v3/search?part=id&q=${SEARCH_QUERY}&ty
     const videos = data.items[0].id.videoId;
 console.log(videos)
   });
+}
+
+var searchEl = document.querySelector(".search")
+
+searchEl.addEventListener("click", () => {
+
+  searchMovieId()
+})
 
 
 // Keeping the history saved for previous searches
