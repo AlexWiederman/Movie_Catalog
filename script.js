@@ -1,36 +1,43 @@
-function createVideoPlayer() {
-  // 2. This code loads the IFrame Player API code asynchronously.
-  var tag = document.createElement('script');
+// function createVideoPlayer() {
+//   // 2. This code loads the IFrame Player API code asynchronously.
+//   var tag = document.createElement('script');
 
-  tag.src = "https://www.youtube.com/iframe_api";
+//   tag.src = "https://www.youtube.com/iframe_api";
 
-  var firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+//   var firstScriptTag = document.getElementsByTagName('script')[0];
+//   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-  // 3. This function creates an <iframe> (and YouTube player)
-  //    after the API code downloads.
-  var player;
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-      height: '390',
-      width: '640',
-      videoId: 'video',  //'iszwuX1AK6A',
-      playerVars: {
-        'playsinline': 1
-      },
-      events: {
-        'onReady': onPlayerReady,
-        //   'onStateChange': onPlayerStateChange
-      }
-    });
-  }
+//   // 3. This function creates an <iframe> (and YouTube player)
+//   //    after the API code downloads.
+//   var player;
+//   function onYouTubeIframeAPIReady() {
+//     player = new YT.Player('player', {
+//       height: '390',
+//       width: '640',
+//       videoId: 'video',  //'iszwuX1AK6A',
+//       playerVars: {
+//         'playsinline': 1
+//       },
+//       events: {
+//         'onReady': onPlayerReady,
+//         //   'onStateChange': onPlayerStateChange
+//       }
+//     });
+//   }
 
-  // 4. The API will call this function when the video player is ready.
-  function onPlayerReady(event) {
-    event.target.playVideo();
-  }
-};
+//   // 4. The API will call this function when the video player is ready.
+//   function onPlayerReady(event) {
+//     event.target.playVideo();
+//   }
+// };
 
+function onYouTubePlayerAPIReady() {
+  var player = new YT.Player('player', {
+    height: '360',
+    width: '640',
+    videoId: 'JfVOs4VSpmA'
+  });
+}
 
 
 var apiKey = "AIzaSyDZ76_4xh5c5tRRPhgt1pQyPC5dxAdj3T4"
@@ -67,7 +74,8 @@ searchEl.addEventListener("click", () => {
 
   searchMovieId(video) //getting back video id
 
-  createVideoPlayer()
+  // createVideoPlayer()
+  onYouTubePlayerAPIReady()
 })
 
 
