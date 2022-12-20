@@ -33,43 +33,37 @@ function onYouTubeIframeAPIReady() {
     event.target.playVideo();
   }
 
-  // 5. The API calls this function when the player's state changes.
-  //    The function indicates that when playing a video (state=1),
-  //    the player should play for six seconds and then stop.
-//   var done = false;
-//   function onPlayerStateChange(event) {
-//     if (event.data == YT.PlayerState.PLAYING && !done) {
-//       setTimeout(stopVideo, 6000);
-//       done = true;
-//     }
-//   }
-//   function stopVideo() {
-//     player.stopVideo();
-//   }
 
+var searchQuery = 'Wolf of Wall Street';
+// YouTube API key
+var API_KEY = 'AIzaSyDZ76_4xh5c5tRRPhgt1pQyPC5dxAdj3T4';
 
-  var url = "https://www.googleapis.com/youtube/v3/search?q=type=video&maxResults=2&"
-//   Calling youtube api to get the video id of movie that key word is searched
-  var apiCall = url + "key=" + apiKey
- // https://www.googleapis.com/youtube/v3/search?q=$formatted_keyword&order=". $_GET['order'] ."&part=snippet&type=video&maxResults=". $_GET['max_result'] ."&key=". $api_key;
+// Replace <SEARCH_QUERY> with the keywords or phrases that you want to search for
+var SEARCH_QUERY = 'Wolf of Wall Street' + ' movie trailer';
 
- //https://www.googleapis.com/youtube/v3/search?q=type=video&maxResults=2&key=AIzaSyDZ76_4xh5c5tRRPhgt1pQyPC5dxAdj3T4
-
- fetch(apiCall)
-.then(function(data) {
-    console.log(data)
-})
-var searchHistory = (localStorage.searchHistory) ? JSON.parse(localStorage.searchHistory) : [];
-document.querySelector("").addEventListener("click", () => {
-  searchHistory.push(document.querySelector("").value);
-  localStorage.searchHistory = JSON.stringify(searchHistory);
-});
-document.querySelector("").addEventListener("", () => {
-  var data = document.querySelector("");
-  data.innerHTML = "";
-  searchHistory.forEach((search) => {
-    data.innerHTML = "" + data.innerHTML;
-    data.querySelector("").innerText = search;
+// Make a search request to the YouTube API
+fetch(`https://www.googleapis.com/youtube/v3/search?part=id&q=${SEARCH_QUERY}&type=video&maxResults=10&key=${API_KEY}`)
+  .then(response => response.json())
+  .then(data => {
+    // Extract the list of videos from the response
+    const videos = data.items[0].id.videoId;
+console.log(videos)
   });
-});
+
+
+// Keeping the history saved for previous searches
+// var searchHistory = (localStorage.searchHistory) ? JSON.parse(localStorage.searchHistory) : [];
+// document.querySelector("").addEventListener("click", () => {
+//   searchHistory.push(document.querySelector("").value);
+//   localStorage.searchHistory = JSON.stringify(searchHistory);
+
+// });
+// document.querySelector("").addEventListener("", () => {
+//   var data = document.querySelector("");
+//   data.innerHTML = "";
+//   searchHistory.forEach((search) => {
+//     data.innerHTML = "" + data.innerHTML;
+//     data.querySelector("").innerText = search;
+//   });
+// });
 //Will look at class tags from html to add in order to work
