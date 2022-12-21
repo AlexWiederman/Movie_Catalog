@@ -73,6 +73,14 @@ footer {
 
 
 /* nav {
+
+
+header {
+    background-color: darkcyan;
+    align-items: center;
+}
+
+nav {
     background-image:url(file:///Users/community/Downloads/ALL%20OF%20THE%20LIGHTS.jpeg);
     color: red;
     font-family: 'Open Sans', sans-serif;
@@ -111,6 +119,7 @@ butto {
 }
 
 footer {
+.footer {
     background-color: red;
     color: #ffffff;
     font-family: 'Open Sans', sans-serif;
