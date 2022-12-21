@@ -32,10 +32,12 @@
 // };
 
 function createPlayer() {
-  if (document.querySelector(".youtube") !== null) {
-    console.log("exists")
-  }
   var videoParentEl = document.querySelector('.youtube')
+  if (videoParentEl.children.length >0) {
+    console.log("exists")
+    videoParentEl.children[0].remove()
+  }
+  
   var videoEl = document.createElement('div');
   videoEl.id = "player"
   videoParentEl.appendChild(videoEl);
