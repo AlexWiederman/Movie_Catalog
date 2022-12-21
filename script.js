@@ -31,17 +31,29 @@
 //   }
 // };
 
-function onYouTubePlayerAPIReady() {
+function createPlayer() {
+  if (document.querySelector(".youtube") !== null) {
+    console.log("exists")
+  }
+  var videoParentEl = document.querySelector('.youtube')
+  var videoEl = document.createElement('div');
+  videoEl.id = "player"
+  videoParentEl.appendChild(videoEl);
+
   var player = new YT.Player('player', {
     height: '360',
     width: '640',
-    videoId: 'JfVOs4VSpmA'
+    videoId: video
   });
+}
+
+function onYouTubePlayerAPIReady() {
+console.log('Ready')
+  
 }
 
 
 var apiKey = "AIzaSyDZ76_4xh5c5tRRPhgt1pQyPC5dxAdj3T4"
-var searchQuery = 'Wolf of Wall Street';
 // YouTube API key
 // var API_KEY = 'AIzaSyDZ76_4xh5c5tRRPhgt1pQyPC5dxAdj3T4'; //amwiederman15
 var API_KEY = 'AIzaSyBWiJO8Tjg4qX7p5wfAh4ih4nq6XeKqIAk'; //cemti
@@ -50,16 +62,18 @@ var API_KEY = 'AIzaSyBWiJO8Tjg4qX7p5wfAh4ih4nq6XeKqIAk'; //cemti
 var SEARCH_QUERY;
 var video;
 
-function searchMovieId(video) {
+function searchMovieId() {
   // Make a search request to the YouTube API
   fetch(`https://www.googleapis.com/youtube/v3/search?part=id&q=${SEARCH_QUERY}&type=video&maxResults=10&key=${API_KEY}`)
     .then(response => response.json())
     .then(data => {
       // Extract the list of videos from the response
+      
       video = data.items[0].id.videoId;
+      console.log(data)
       console.log(video)
+      createPlayer()
     });
-
 }
 
 var searchEl = document.querySelector(".search");
@@ -69,13 +83,16 @@ var movie;
 searchEl.addEventListener("click", () => {
 
   movie = movieEl.value;
+  if (movie == "") {
+    return
+  }
   movieEl.value = "";
   SEARCH_QUERY = movie + ' movie trailer';
 
-  searchMovieId(video) //getting back video id
-
-  // createVideoPlayer()
-  onYouTubePlayerAPIReady()
+  video = searchMovieId(video) //getting back video id
+console.log( video)
+  
+  
 })
 
 
