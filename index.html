@@ -13,7 +13,6 @@
     <h1>Movie Catalog</h1>
   </nav>
 
-
 <body>
 </div>
     
@@ -25,8 +24,9 @@
             <div class="control">
               <input id="userInput" class="input" type="text" placeholder="Find a Movie">
             </div>
+            
             <div class="control">
-              <a class="button is-info">
+              <a  id="movie" class="button is-info search">
                 Search
               </a>
             </div>
@@ -51,17 +51,21 @@
     </div>
     
     
+         <div class="youtube">
+          <!-- Video player will apear here -->
+        </div>
+             
     </main>
-
-
+  
 </section>
-
 
 </body>
 
 
 
 
+<script src="script.js"></script>
+<script src="https://www.youtube.com/iframe_api"></script>
 
     <footer class="footer">
         <div class="content has-text-centered">
@@ -84,10 +88,9 @@
         
       </footer>
       <script src="script.js"></script>
-<script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbizn6P1C9VjIOVXW4M_uvFGQ9Urc4rBA&callback=initAutocomplete&libraries=places&v=weekly"
-      defer
-    ></script>
+      <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbizn6P1C9VjIOVXW4M_uvFGQ9Urc4rBA&libraries=places&callback=initMap">
+</script>
    
     
 

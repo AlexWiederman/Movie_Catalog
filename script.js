@@ -1,65 +1,103 @@
-// Youtube api key: AIzaSyDZ76_4xh5c5tRRPhgt1pQyPC5dxAdj3T4
-// https://www.googleapis.com/youtube/v3/videos?id=7lCDEYXw3mM&key=AIzaSyBaW7C70KBRCLgWbBojggYmd9Ec1wbIa_k&part=snippet,contentDetails,statistics,status
+// function createVideoPlayer() {
+//   // 2. This code loads the IFrame Player API code asynchronously.
+//   var tag = document.createElement('script');
 
-var apiKey = "AIzaSyDZ76_4xh5c5tRRPhgt1pQyPC5dxAdj3T4"
-// 2. This code loads the IFrame Player API code asynchronously.
-var tag = document.createElement('script');
+//   tag.src = "https://www.youtube.com/iframe_api";
 
-tag.src = "https://www.youtube.com/iframe_api";
+//   var firstScriptTag = document.getElementsByTagName('script')[0];
+//   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+//   // 3. This function creates an <iframe> (and YouTube player)
+//   //    after the API code downloads.
+//   var player;
+//   function onYouTubeIframeAPIReady() {
+//     player = new YT.Player('player', {
+//       height: '390',
+//       width: '640',
+//       videoId: 'video',  //'iszwuX1AK6A',
+//       playerVars: {
+//         'playsinline': 1
+//       },
+//       events: {
+//         'onReady': onPlayerReady,
+//         //   'onStateChange': onPlayerStateChange
+//       }
+//     });
+//   }
 
-// 3. This function creates an <iframe> (and YouTube player)
-//    after the API code downloads.
-var player;
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player('player', {
-    height: '390',
+//   // 4. The API will call this function when the video player is ready.
+//   function onPlayerReady(event) {
+//     event.target.playVideo();
+//   }
+// };
+
+function createPlayer() {
+  var videoParentEl = document.querySelector('.youtube')
+  if (videoParentEl.children.length >0) {
+    console.log("exists")
+    videoParentEl.children[0].remove()
+  }
+  
+  var videoEl = document.createElement('div');
+  videoEl.id = "player"
+  videoParentEl.appendChild(videoEl);
+
+  var player = new YT.Player('player', {
+    height: '360',
     width: '640',
-    videoId: 'iszwuX1AK6A',
-    playerVars: {
-      'playsinline': 1
-    },
-    events: {
-      'onReady': onPlayerReady,
-    //   'onStateChange': onPlayerStateChange
-    }
+    videoId: video
   });
 }
 
- // 4. The API will call this function when the video player is ready.
- function onPlayerReady(event) {
-    event.target.playVideo();
+function onYouTubePlayerAPIReady() {
+console.log('Ready')
+  
+}
+
+
+var apiKey = "AIzaSyDZ76_4xh5c5tRRPhgt1pQyPC5dxAdj3T4"
+// YouTube API key
+// var API_KEY = 'AIzaSyDZ76_4xh5c5tRRPhgt1pQyPC5dxAdj3T4'; //amwiederman15
+var API_KEY = 'AIzaSyBWiJO8Tjg4qX7p5wfAh4ih4nq6XeKqIAk'; //cemti
+
+// Replace <SEARCH_QUERY> with the keywords or phrases that you want to search for
+var SEARCH_QUERY;
+var video;
+
+function searchMovieId() {
+  // Make a search request to the YouTube API
+  fetch(`https://www.googleapis.com/youtube/v3/search?part=id&q=${SEARCH_QUERY}&type=video&maxResults=10&key=${API_KEY}`)
+    .then(response => response.json())
+    .then(data => {
+      // Extract the list of videos from the response
+      
+      video = data.items[0].id.videoId;
+      console.log(data)
+      console.log(video)
+      createPlayer()
+    });
+}
+
+var searchEl = document.querySelector(".search");
+var movieEl = document.querySelector(".input");
+var movie;
+
+searchEl.addEventListener("click", () => {
+
+  movie = movieEl.value;
+  if (movie == "") {
+    return
   }
+  movieEl.value = "";
+  SEARCH_QUERY = movie + ' movie trailer';
 
-  // 5. The API calls this function when the player's state changes.
-  //    The function indicates that when playing a video (state=1),
-  //    the player should play for six seconds and then stop.
-//   var done = false;
-//   function onPlayerStateChange(event) {
-//     if (event.data == YT.PlayerState.PLAYING && !done) {
-//       setTimeout(stopVideo, 6000);
-//       done = true;
-//     }
-//   }
-//   function stopVideo() {
-//     player.stopVideo();
-//   }
-
-
-  var url = "https://www.googleapis.com/youtube/v3/search?q=type=video&maxResults=2&"
-//   Calling youtube api to get the video id of movie that key word is searched
-  var apiCall = url + "key=" + apiKey
- // https://www.googleapis.com/youtube/v3/search?q=$formatted_keyword&order=". $_GET['order'] ."&part=snippet&type=video&maxResults=". $_GET['max_result'] ."&key=". $api_key;
-
- //https://www.googleapis.com/youtube/v3/search?q=type=video&maxResults=2&key=AIzaSyDZ76_4xh5c5tRRPhgt1pQyPC5dxAdj3T4
-
- fetch(apiCall)
-.then(function(data) {
-    console.log(data)
+  video = searchMovieId(video) //getting back video id
+console.log( video)
+  
+  
 })
 
+<<<<<<< HEAD
 var baseUrl = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCbizn6P1C9VjIOVXW4M_uvFGQ9Urc4rBA&libraries=places"
 var url="https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=$40.7128,$40.0060&radius=$20&key=AIzaSyCbizn6P1C9VjIOVXW4M_uvFGQ9Urc4rBAY&libraries=places";
 
@@ -151,3 +189,22 @@ var getData = () => {
 getData();
 
 
+=======
+
+// Keeping the history saved for previous searches
+// var searchHistory = (localStorage.searchHistory) ? JSON.parse(localStorage.searchHistory) : [];
+// document.querySelector("").addEventListener("click", () => {
+//   searchHistory.push(document.querySelector("").value);
+//   localStorage.searchHistory = JSON.stringify(searchHistory);
+
+// });
+// document.querySelector("").addEventListener("", () => {
+//   var data = document.querySelector("");
+//   data.innerHTML = "";
+//   searchHistory.forEach((search) => {
+//     data.innerHTML = "" + data.innerHTML;
+//     data.querySelector("").innerText = search;
+//   });
+// });
+//Will look at class tags from html to add in order to work
+>>>>>>> 23aba69f8be451d462ae8ca0087580f215c29d2b
