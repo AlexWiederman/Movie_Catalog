@@ -1,0 +1,114 @@
+body {
+  background-image: url("./img/pexels-nathan-engel-436413.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+ }
+
+header {
+    color: antiquewhite;
+    font-family: 'Bungee Shade', cursive;
+    text-align: center;
+    font-size: 35px;
+    
+}
+
+   
+
+.h4 {
+    color: antiquewhite;
+    font-family: 'Bungee Shade', cursive;
+}
+
+.img{
+  border-radius: 15px;
+  border: 5px solid #9900FF;
+  box-shadow: 0 0 10px #8ac4ff;
+
+}
+
+
+.but {
+    border-radius: 15px;
+    background-color: #c7120c;
+    color: #FFFFFF;
+    font-size: 15px;
+    padding: 10px;
+    width: 100px;
+   ;
+  }
+    
+  
+
+
+  .theater {
+    border-radius: 150px;
+    font-size: 15px;
+    padding: 12px;
+    width: 200px;
+    box-shadow: 0 0 10px #000 inset
+  }
+
+
+  .movie {
+    font-size: 60%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    width: 200px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px #000 inset;
+  }
+
+  
+
+  nav {
+    display: flex;
+    justify-content: right;
+    margin-top: 5%;
+  }
+  
+  button {
+    font-family: 'Bungee Shade', cursive;
+    width: 150px;
+    margin: 0 .5%;
+    font-size: 60%;
+    color:black;
+    background-color:#9900FF ;
+    border-radius: 15px;
+    box-shadow: 0 0 10px #8ac4ff;
+  }
+  
+  
+  button:hover {
+    background-color:#CC33FF  ;
+    color: rgb(185, 136, 136);
+  }
+  
+  
+  button:active {
+    font-size: 60%;
+    box-shadow: 0 0 10px #000 inset;
+  }
+  
+ 
+  button:focus  {
+    outline: none;
+    border-color: #8ac4ff;
+  }
+
+  .movie:hover {
+    font-size: 60%;
+    box-shadow: 0 0 10px #000 inset;
+  }
+  
+
+  .h2 {
+    font-family: 'Bungee Shade', cursive;
+    font-size: 40px;
+    color: antiquewhite;
+  }
+
+  
+  
