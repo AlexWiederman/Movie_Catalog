@@ -7,25 +7,23 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylecheet"  href="css/style.css">
     <title>Movie Catalog</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 </head>
-
-<header>
-    <h3>Movie Catalog</h3>
-</header>
+  <nav>
+    <h1>Movie Catalog</h1>
+  </nav>
 
 
 <body>
-
-    <nav>
-        <h1>Movie Catalog</h1>
-    </nav>
+</div>
+    
 
 <section>
     
     <main>
         <div class="field has-addons">
             <div class="control">
-              <input class="input" type="text" placeholder="Find a Movie">
+              <input id="userInput" class="input" type="text" placeholder="Find a Movie">
             </div>
             <div class="control">
               <a class="button is-info">
@@ -52,6 +50,7 @@
         <h2>Movie Coming Soon!</h2>
     </div>
     
+    
     </main>
 
 
@@ -60,7 +59,7 @@
 
 </body>
 
-<script src="script.js"></script>
+
 
 
 
@@ -74,7 +73,21 @@
             is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
           </p>
         </div>
+        <input
+      id="pac-input"
+      class="controls"
+      type="text"
+      placeholder="Search Box"
+    />
+    <div id="map"></div>
+
+        
       </footer>
+      <script src="script.js"></script>
+<script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbizn6P1C9VjIOVXW4M_uvFGQ9Urc4rBA&callback=initAutocomplete&libraries=places&v=weekly"
+      defer
+    ></script>
    
     
 

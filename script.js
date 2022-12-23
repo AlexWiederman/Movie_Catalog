@@ -59,17 +59,95 @@ function onYouTubeIframeAPIReady() {
 .then(function(data) {
     console.log(data)
 })
-var searchHistory = (localStorage.searchHistory) ? JSON.parse(localStorage.searchHistory) : [];
-document.querySelector("").addEventListener("click", () => {
-  searchHistory.push(document.querySelector("").value);
-  localStorage.searchHistory = JSON.stringify(searchHistory);
-});
-document.querySelector("").addEventListener("", () => {
-  var data = document.querySelector("");
-  data.innerHTML = "";
-  searchHistory.forEach((search) => {
-    data.innerHTML = "" + data.innerHTML;
-    data.querySelector("").innerText = search;
+
+var baseUrl = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCbizn6P1C9VjIOVXW4M_uvFGQ9Urc4rBA&libraries=places"
+var url="https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=$40.7128,$40.0060&radius=$20&key=AIzaSyCbizn6P1C9VjIOVXW4M_uvFGQ9Urc4rBAY&libraries=places";
+
+
+
+
+// <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+function initAutocomplete() {
+  const map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: 40.7128, lng: 74.0060 },
+    zoom: 15,
+    mapTypeId: "roadmap",
   });
-});
-//Will look at class tags from html to add in order to work
+  // Create the search box and link it to the UI element.
+  const input = document.getElementById("pac-input");
+  const searchBox = new google.maps.places.SearchBox(input);
+
+  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+  // Bias the SearchBox results towards current map's viewport.
+  map.addListener("bounds_changed", () => {
+    searchBox.setBounds(map.getBounds());
+  });
+
+  let markers = [];
+
+  // Listen for the event fired when the user selects a prediction and retrieve
+  // more details for that place.
+  searchBox.addListener("places_changed", () => {
+    const places = searchBox.getPlaces();
+
+    if (places.length == 0) {
+      return;
+    }
+
+    // Clear out the old markers.
+    markers.forEach((marker) => {
+      marker.setMap(null);
+    });
+    markers = [];
+
+    // For each place, get the icon, name and location.
+    const bounds = new google.maps.LatLngBounds();
+
+    places.forEach((place) => {
+      if (!place.geometry || !place.geometry.location) {
+        console.log("Returned place contains no geometry");
+        return;
+      }
+
+      const icon = {
+        url: place.icon,
+        size: new google.maps.Size(71, 71),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(17, 34),
+        scaledSize: new google.maps.Size(25, 25),
+      };
+
+      // Create a marker for each place.
+      markers.push(
+        new google.maps.Marker({
+          map,
+          icon,
+          title: place.name,
+          position: place.geometry.location,
+        })
+      );
+      if (place.geometry.viewport) {
+        // Only geocodes have viewport.
+        bounds.union(place.geometry.viewport);
+      } else {
+        bounds.extend(place.geometry.location);
+      }
+    });
+    map.fitBounds(bounds);
+  });
+}
+
+window.initAutocomplete = initAutocomplete;
+
+var getData = () => {
+  fetch(url)
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+    });
+};
+getData();
+
+
