@@ -114,3 +114,35 @@ console.log( video)
 //   });
 // });
 //Will look at class tags from html to add in order to work
+
+
+function makeHistoryElement() {
+  //Deleting all history elements before creating all new ones so they do not stack and repeat
+  var historyExists = document.querySelector(".list-group-item")
+  if (historyExists !== null) {
+      var historyElements = document.querySelectorAll(".list-group-item");
+      for (i = 0; i < historyElements.length; i++) {
+          historyElements[i].remove()
+      }
+  }
+
+  //Creating elements that are in the local storage variable (city)
+  for (i = 0; i < city.length; i++) {
+    var historyEl = document.querySelector(".history");
+    var historyNew = document.createElement('li');
+    historyNew.innerHTML = city[i]
+    historyNew.classList = "list-group-item"
+    historyEl.appendChild(historyNew)
+}
+
+}
+
+function getHistory(city) {
+var city = localStorage.getItem('searchHistory');
+if (city) {
+    city = JSON.parse(city);
+} else {
+    city = [];
+}
+return city;
+}
