@@ -4,34 +4,92 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylecheet"  href="css/style.css">
     <title>Movie Catalog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="./assets/style.css">
+  
 </head>
-
-<header>
-    <h3>Movie Catalog</h3>
-</header>
 
 <body>
 
+<!-- Header -->
+<header>
+    <h1>Movie Catalog</h1>
+    <h5>Welcome to the best place for</h5>
     <nav>
-        <h1>Movie Catalog</h1>
-    </nav>
-
-<section>
+      <button>Home</button>
+      <button>News</button>
+      <button>Blogs</button>
+      <button>About</button>
+     </nav>
+</header>
     
+
+ <main>
+
+
+  <section>
+<div>
+    <aside>
+      <h3 class="h4">Search for Movie theater near you!</h3>
+      <form>
+        <input class="theater" type="text" placeholder="Movie Theater" />
+        <button class="but">Search!</button>
+        <div class="youtube">
+          <!-- Video player will apear here -->
+        </div>
+      </form>
+    </aside>
+  </div>
+  </section>
+
+  <section>
+    <div>
+      <div class="content has-text-centered">
+        <main>
+            <div class="field has-addons">
+                <div class="control">
+                  <div class="youtube">
+                  <input class="movie" class="input" type="text" placeholder="Find a Movie">
+                  <button class="movie">Click!</button>
+                </div>
+              </div>
+    </div>
+  </section>
+
+
+      <section>
+        <aside>
+          <h2 class="h2">Showing Know!</h2>
+        <a><img  class="img" class="" src="./assets/img/avatar-the-way-of-water-movie-poster.jpg" alt="Girl in a jacket" width="180" height="300"></a>
+        <img  class="img" class="" src="./assets/img/black-panther-wakanda-forever-movie-poster.jpg" alt="Girl in a jacket" width="180" height="300">
+        <img  class="img" class="" src="./assets/img/the-menu-movie-poster.jpg" alt="Girl in a jacket" width="180" height="300">
+        <img  class="img" class="" src="./assets/img/violent-night-british-movie-poster.jpg" alt="Girl in a jacket" width="180" height="300">
+      </aside>
+      </section>
+
+      
+
+   
+
+  </main>
+
+   
+  <!-- <script src="script.js"></script> -->
+<footer>
+         <!-- <div class="content has-text-centered">
     <main>
         <div class="field has-addons">
             <div class="control">
-              <input class="input" type="text" placeholder="Find a Movie">
-            </div>
+              <input class="ff" class="input" type="text" placeholder="Find a Movie">
+            </div> -->
             
-            <div class="control">
+            <!-- <div class="control">
               <a  id="movie" class="button is-info search">
-                Search
+                <button>seatch</button>
               </a>
-            </div>
+            </div> -->
          <div class="youtube">
           <!-- Video player will apear here -->
         </div>
@@ -40,21 +98,25 @@
   
 </section>
 
-</body>
+
 
 <script src="script.js"></script>
 <script src="https://www.youtube.com/iframe_api"></script>
 
     <footer class="footer">
-        <div class="content has-text-centered">
+        <!-- <div class="content has-text-centered">
           <p>
-            <input type="text" placeholder="Search for Theater" />
-          <button>Submit</button>
-            <strong>Movie Catalog</strong> by <a href="https://jgthms.com">Alex Wiederman, Taylor Brandon and Reinaldo Santana </a>. The source code is licensed
+            <input type="text" placeholder="" />
+          <button class="but">Submit</button> -->
+            <!-- <strong>Movie Catalog</strong> by <a href="https://jgthms.com">Alex Wiederman, Taylor Brandon and Reinaldo Santana </a>. The source code is licensed
             <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
             is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
           </p>
-        </div>
+        </div> -->
       </footer>
+   
+    </body>
+   
+   
 
 </html>
