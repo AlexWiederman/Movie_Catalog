@@ -33,14 +33,14 @@ function onYouTubeIframeAPIReady() {
     event.target.playVideo();
   }
 
-  var url = "https://www.googleapis.com/youtube/v3/search?q=type=video&maxResults=2&"
-//   Calling youtube api to get the video id of movie that key word is searched
-  var apiCall = url + "key=" + apiKey
+//   var url = "https://www.googleapis.com/youtube/v3/search?q=type=video&maxResults=2&"
+// //   Calling youtube api to get the video id of movie that key word is searched
+//   var apiCall = url + "key=" + apiKey
  
- fetch(apiCall)
-.then(function(data) {
-    console.log(data)
-})
+//  fetch(apiCall)
+// .then(function(data) {
+//     console.log(data)
+// })
 
 function createPlayer() {
   var videoParentEl = document.querySelector('.youtube')
@@ -111,7 +111,8 @@ searchEl.addEventListener("click", () => {
   SEARCH_QUERY = movie + ' movie trailer';
 
   video = searchMovieId(video) //getting back video id
-  console.log(video)
+  // console.log(video)
+  makeHistoryElement()
 
 
 })
@@ -129,10 +130,10 @@ function makeHistoryElement() {
 
   //Creating elements that are in the local storage variable (city)
   for (i = 0; i < search.length; i++) {
-    var historyEl = document.querySelector(".history");
-    var historyNew = document.createElement('li');
+    var historyEl = document.querySelector(".dropdown-content");
+    var historyNew = document.createElement('div');
     historyNew.innerHTML = search[i]
-    historyNew.classList = "list_history"
+    historyNew.classList = "list_history dropdown-item"
     historyEl.appendChild(historyNew)
   }
 }
@@ -168,4 +169,12 @@ sMovie = $Form.find('input').val();
       console.log(data)
     });
    
+});
+
+// Bulma history dropdown toggle
+var dropdown = document.querySelector('.dropdown');
+dropdown.addEventListener('click', function(event) {
+  event.stopPropagation();
+  dropdown.classList.toggle('is-active');
+
 });
