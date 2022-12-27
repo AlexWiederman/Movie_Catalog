@@ -132,7 +132,7 @@ function makeHistoryElement() {
   for (i = 0; i < search.length; i++) {
     var historyEl = document.querySelector(".dropdown-content");
     var historyNew = document.createElement('div');
-    historyNew.innerHTML = search[i]
+    historyNew.innerHTML = search[i] + "<hr class='dropdown-divider'>"
     historyNew.classList = "list_history dropdown-item"
     historyEl.appendChild(historyNew)
   }
