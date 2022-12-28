@@ -23,24 +23,15 @@ function onYouTubeIframeAPIReady() {
     },
     events: {
       'onReady': onPlayerReady,
-    //   'onStateChange': onPlayerStateChange
+      //   'onStateChange': onPlayerStateChange
     }
   });
 }
 
- // 4. The API will call this function when the video player is ready.
- function onPlayerReady(event) {
-    event.target.playVideo();
-  }
-
-  var url = "https://www.googleapis.com/youtube/v3/search?q=type=video&maxResults=2&"
-//   Calling youtube api to get the video id of movie that key word is searched
-  var apiCall = url + "key=" + apiKey
- 
- fetch(apiCall)
-.then(function(data) {
-    console.log(data)
-})
+// 4. The API will call this function when the video player is ready.
+function onPlayerReady(event) {
+  event.target.playVideo();
+}
 
 function createPlayer() {
   var videoParentEl = document.querySelector('.youtube')
@@ -62,9 +53,7 @@ function createPlayer() {
 
 function onYouTubePlayerAPIReady() {
   console.log('Ready')
-
 }
-
 
 var apiKey = "AIzaSyDZ76_4xh5c5tRRPhgt1pQyPC5dxAdj3T4"
 // YouTube API key
@@ -100,22 +89,9 @@ searchEl.addEventListener("click", () => {
   if (movie == "") {
     return
   }
-  // getting local storage variables
-  search = getHistory(search);
-  // adding new search to storage variable
-  search.push(movie)
-  // saving variable to local storage
-  saveSearchToStorage()
 
-  movieEl.value = "";
-  SEARCH_QUERY = movie + ' movie trailer';
-
-  video = searchMovieId(video) //getting back video id
-  console.log(video)
-
-
+  startYoutubeSearch()
 })
-
 
 function makeHistoryElement() {
   //Deleting all history elements before creating all new ones so they do not stack and repeat
@@ -127,13 +103,18 @@ function makeHistoryElement() {
     }
   }
 
-  //Creating elements that are in the local storage variable (city)
+  //Creating elements that are in the local storage variable (searchHistory)
   for (i = 0; i < search.length; i++) {
-    var historyEl = document.querySelector(".history");
-    var historyNew = document.createElement('li');
-    historyNew.innerHTML = search[i]
-    historyNew.classList = "list_history"
-    historyEl.appendChild(historyNew)
+    var historyEl = document.querySelector(".dropdown-content");
+    var historyNew = document.createElement('div');
+    historyNew.innerHTML = search[i] // + "<hr class='dropdown-divider'>"
+    historyNew.classList = "list_history dropdown-item"
+
+    var divider = document.createElement('div');
+    divider.innerHTML = "<hr class='dropdown-divider'>"
+    historyEl.appendChild(historyNew) // Creating HTML element with the search history
+    historyEl.appendChild(divider) // putting in list divider that is in the Bulma framework
+
   }
 }
 
@@ -152,20 +133,57 @@ function saveSearchToStorage() {
 }
 
 
+function startYoutubeSearch() {
+  // getting local storage variables
+  search = getHistory(search);
+  // adding new search to storage variable
+  search.push(movie)
+  // saving variable to local storage
+  saveSearchToStorage()
+
+  movieEl.value = "";
+  SEARCH_QUERY = movie + ' movie trailer';
+
+  video = searchMovieId(video) //getting back video id
+  
+  makeHistoryElement()
+}
+
+// ReSearching for movie when history movie list item is selected
+var parentElements = document.querySelector('.dropdown-content')
+parentElements.addEventListener("click", function (event) {
+  console.log(event.target.innerHTML);
+  //Setting variable movie to the movie that user has clicked in history drop down menu
+  movie = event.target.innerHTML;
+  startYoutubeSearch()
+})
+
+
 // omdbapi.com
 var $Form = $('form'), $Container = $('#container');
 $Container.hide();
-$Form.on('submit', function(p_oEvent){
-    var sUrl, sMovie;
-    p_oEvent.preventDefault();
-sMovie = $Form.find('input').val();
-    sUrl = 'https://www.omdbapi.com/?t=' + 'cars' + '&apikey=205fe796'
-    fetch(sUrl)
+$Form.on('submit', function (p_oEvent) {
+  var sUrl, sMovie;
+  p_oEvent.preventDefault();
+  sMovie = $Form.find('input').val();
+  sUrl = 'https://www.omdbapi.com/?t=' + 'cars' + '&apikey=205fe796'
+  fetch(sUrl)
     .then(response => response.json())
     .then(data => {
-      
+
 
       console.log(data)
     });
-   
+
 });
+
+
+// Bulma history dropdown toggle
+var dropdown = document.querySelector('.dropdown');
+dropdown.addEventListener('click', function (event) {
+  event.stopPropagation();
+  dropdown.classList.toggle('is-active');
+});
+
+
+

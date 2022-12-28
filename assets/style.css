@@ -110,5 +110,10 @@ header {
     color: antiquewhite;
   }
 
+  .list_history:hover {
+    cursor:pointer;
+
+  }
+
   
   
