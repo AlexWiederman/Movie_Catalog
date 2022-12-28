@@ -23,15 +23,15 @@ function onYouTubeIframeAPIReady() {
     },
     events: {
       'onReady': onPlayerReady,
-    //   'onStateChange': onPlayerStateChange
+      //   'onStateChange': onPlayerStateChange
     }
   });
 }
 
- // 4. The API will call this function when the video player is ready.
- function onPlayerReady(event) {
-    event.target.playVideo();
-  }
+// 4. The API will call this function when the video player is ready.
+function onPlayerReady(event) {
+  event.target.playVideo();
+}
 
 function createPlayer() {
   var videoParentEl = document.querySelector('.youtube')
@@ -90,19 +90,7 @@ searchEl.addEventListener("click", () => {
     return
   }
 
-  // getting local storage variables
-  search = getHistory(search);
-  // adding new search to storage variable
-  search.push(movie)
-  // saving variable to local storage
-  saveSearchToStorage()
-
-  movieEl.value = "";
-  SEARCH_QUERY = movie + ' movie trailer';
-
-  video = searchMovieId(video) //getting back video id
-  // console.log(video)
-  makeHistoryElement()
+  startYoutubeSearch()
 })
 
 function makeHistoryElement() {
@@ -122,11 +110,11 @@ function makeHistoryElement() {
     historyNew.innerHTML = search[i] // + "<hr class='dropdown-divider'>"
     historyNew.classList = "list_history dropdown-item"
 
-
     var divider = document.createElement('div');
     divider.innerHTML = "<hr class='dropdown-divider'>"
-    historyEl.appendChild(historyNew)
-    
+    historyEl.appendChild(historyNew) // Creating HTML element with the search history
+    historyEl.appendChild(divider) // putting in list divider that is in the Bulma framework
+
   }
 }
 
@@ -144,34 +132,55 @@ function saveSearchToStorage() {
   localStorage.setItem("searchHistory", JSON.stringify(search));
 }
 
+
+function startYoutubeSearch() {
+  // getting local storage variables
+  search = getHistory(search);
+  // adding new search to storage variable
+  search.push(movie)
+  // saving variable to local storage
+  saveSearchToStorage()
+
+  movieEl.value = "";
+  SEARCH_QUERY = movie + ' movie trailer';
+
+  video = searchMovieId(video) //getting back video id
+  
+  makeHistoryElement()
+}
+
 // ReSearching for movie when history movie list item is selected
 var parentElements = document.querySelector('.dropdown-content')
 parentElements.addEventListener("click", function (event) {
   console.log(event.target.innerHTML);
+  //Setting variable movie to the movie that user has clicked in history drop down menu
+  movie = event.target.innerHTML;
+  startYoutubeSearch()
 })
 
 
 // omdbapi.com
 var $Form = $('form'), $Container = $('#container');
 $Container.hide();
-$Form.on('submit', function(p_oEvent){
-    var sUrl, sMovie;
-    p_oEvent.preventDefault();
-sMovie = $Form.find('input').val();
-    sUrl = 'https://www.omdbapi.com/?t=' + 'cars' + '&apikey=205fe796'
-    fetch(sUrl)
+$Form.on('submit', function (p_oEvent) {
+  var sUrl, sMovie;
+  p_oEvent.preventDefault();
+  sMovie = $Form.find('input').val();
+  sUrl = 'https://www.omdbapi.com/?t=' + 'cars' + '&apikey=205fe796'
+  fetch(sUrl)
     .then(response => response.json())
     .then(data => {
-      
+
 
       console.log(data)
     });
-   
+
 });
+
 
 // Bulma history dropdown toggle
 var dropdown = document.querySelector('.dropdown');
-dropdown.addEventListener('click', function(event) {
+dropdown.addEventListener('click', function (event) {
   event.stopPropagation();
   dropdown.classList.toggle('is-active');
 });
