@@ -33,15 +33,6 @@ function onYouTubeIframeAPIReady() {
     event.target.playVideo();
   }
 
-//   var url = "https://www.googleapis.com/youtube/v3/search?q=type=video&maxResults=2&"
-// //   Calling youtube api to get the video id of movie that key word is searched
-//   var apiCall = url + "key=" + apiKey
- 
-//  fetch(apiCall)
-// .then(function(data) {
-//     console.log(data)
-// })
-
 function createPlayer() {
   var videoParentEl = document.querySelector('.youtube')
   if (videoParentEl.children.length > 0) {
@@ -62,9 +53,7 @@ function createPlayer() {
 
 function onYouTubePlayerAPIReady() {
   console.log('Ready')
-
 }
-
 
 var apiKey = "AIzaSyDZ76_4xh5c5tRRPhgt1pQyPC5dxAdj3T4"
 // YouTube API key
@@ -100,6 +89,7 @@ searchEl.addEventListener("click", () => {
   if (movie == "") {
     return
   }
+
   // getting local storage variables
   search = getHistory(search);
   // adding new search to storage variable
@@ -113,10 +103,7 @@ searchEl.addEventListener("click", () => {
   video = searchMovieId(video) //getting back video id
   // console.log(video)
   makeHistoryElement()
-
-
 })
-
 
 function makeHistoryElement() {
   //Deleting all history elements before creating all new ones so they do not stack and repeat
@@ -128,13 +115,18 @@ function makeHistoryElement() {
     }
   }
 
-  //Creating elements that are in the local storage variable (city)
+  //Creating elements that are in the local storage variable (searchHistory)
   for (i = 0; i < search.length; i++) {
     var historyEl = document.querySelector(".dropdown-content");
     var historyNew = document.createElement('div');
-    historyNew.innerHTML = search[i] + "<hr class='dropdown-divider'>"
+    historyNew.innerHTML = search[i] // + "<hr class='dropdown-divider'>"
     historyNew.classList = "list_history dropdown-item"
+
+
+    var divider = document.createElement('div');
+    divider.innerHTML = "<hr class='dropdown-divider'>"
     historyEl.appendChild(historyNew)
+    
   }
 }
 
@@ -151,6 +143,12 @@ function getHistory(search) {
 function saveSearchToStorage() {
   localStorage.setItem("searchHistory", JSON.stringify(search));
 }
+
+// ReSearching for movie when history movie list item is selected
+var parentElements = document.querySelector('.dropdown-content')
+parentElements.addEventListener("click", function (event) {
+  console.log(event.target.innerHTML);
+})
 
 
 // omdbapi.com
@@ -176,5 +174,7 @@ var dropdown = document.querySelector('.dropdown');
 dropdown.addEventListener('click', function(event) {
   event.stopPropagation();
   dropdown.classList.toggle('is-active');
-
 });
+
+
+
