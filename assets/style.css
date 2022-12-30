@@ -1,3 +1,7 @@
+
+
+
+
 body {
   background-image: url("./img/pexels-nathan-engel-436413.jpg");
   background-size: cover;
@@ -6,8 +10,8 @@ body {
  }
 
 header {
-    color: antiquewhite;
-    font-family: 'Bungee Shade', cursive;
+    color:  #CC99CC;
+    font-family: 'Titan One', cursive;
     text-align: center;
     font-size: 35px;
     
@@ -16,7 +20,7 @@ header {
    
 
 .h4 {
-    color: antiquewhite;
+    color:  #CC99CC;
     font-family: 'Bungee Shade', cursive;
 }
 
@@ -110,5 +114,13 @@ header {
     color: antiquewhite;
   }
 
+
+  footer { 
+    margin: 0 .5%;
+    border-radius: 15px;
+    padding: 19px;
+    background-color: #CC33FF ;
+  
+  }
   
   
