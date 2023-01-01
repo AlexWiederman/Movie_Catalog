@@ -1,43 +1,45 @@
-// function createVideoPlayer() {
-//   // 2. This code loads the IFrame Player API code asynchronously.
-//   var tag = document.createElement('script');
+// Youtube api key: AIzaSyDZ76_4xh5c5tRRPhgt1pQyPC5dxAdj3T4
+// https://www.googleapis.com/youtube/v3/videos?id=7lCDEYXw3mM&key=AIzaSyBaW7C70KBRCLgWbBojggYmd9Ec1wbIa_k&part=snippet,contentDetails,statistics,status
 
-//   tag.src = "https://www.youtube.com/iframe_api";
+var apiKey = "AIzaSyDZ76_4xh5c5tRRPhgt1pQyPC5dxAdj3T4"
+// 2. This code loads the IFrame Player API code asynchronously.
+var tag = document.createElement('script');
 
-//   var firstScriptTag = document.getElementsByTagName('script')[0];
-//   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+tag.src = "https://www.youtube.com/iframe_api";
 
-//   // 3. This function creates an <iframe> (and YouTube player)
-//   //    after the API code downloads.
-//   var player;
-//   function onYouTubeIframeAPIReady() {
-//     player = new YT.Player('player', {
-//       height: '390',
-//       width: '640',
-//       videoId: 'video',  //'iszwuX1AK6A',
-//       playerVars: {
-//         'playsinline': 1
-//       },
-//       events: {
-//         'onReady': onPlayerReady,
-//         //   'onStateChange': onPlayerStateChange
-//       }
-//     });
-//   }
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-//   // 4. The API will call this function when the video player is ready.
-//   function onPlayerReady(event) {
-//     event.target.playVideo();
-//   }
-// };
+// 3. This function creates an <iframe> (and YouTube player)
+//    after the API code downloads.
+var player;
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('player', {
+    height: '390',
+    width: '640',
+    videoId: 'iszwuX1AK6A',
+    playerVars: {
+      'playsinline': 1
+    },
+    events: {
+      'onReady': onPlayerReady,
+      //   'onStateChange': onPlayerStateChange
+    }
+  });
+}
+
+// 4. The API will call this function when the video player is ready.
+function onPlayerReady(event) {
+  event.target.playVideo();
+}
 
 function createPlayer() {
   var videoParentEl = document.querySelector('.youtube')
-  if (videoParentEl.children.length >0) {
+  if (videoParentEl.children.length > 0) {
     console.log("exists")
     videoParentEl.children[0].remove()
   }
-  
+
   var videoEl = document.createElement('div');
   videoEl.id = "player"
   videoParentEl.appendChild(videoEl);
@@ -50,10 +52,8 @@ function createPlayer() {
 }
 
 function onYouTubePlayerAPIReady() {
-console.log('Ready')
-  
+  console.log('Ready')
 }
-
 
 var apiKey = "AIzaSyDZ76_4xh5c5tRRPhgt1pQyPC5dxAdj3T4"
 // YouTube API key
@@ -63,6 +63,7 @@ var API_KEY = 'AIzaSyBWiJO8Tjg4qX7p5wfAh4ih4nq6XeKqIAk'; //cemti
 // Replace <SEARCH_QUERY> with the keywords or phrases that you want to search for
 var SEARCH_QUERY;
 var video;
+var search;
 
 function searchMovieId() {
   // Make a search request to the YouTube API
@@ -70,7 +71,7 @@ function searchMovieId() {
     .then(response => response.json())
     .then(data => {
       // Extract the list of videos from the response
-      
+
       video = data.items[0].id.videoId;
       console.log(data)
       console.log(video)
@@ -88,29 +89,101 @@ searchEl.addEventListener("click", () => {
   if (movie == "") {
     return
   }
+
+  startYoutubeSearch()
+})
+
+function makeHistoryElement() {
+  //Deleting all history elements before creating all new ones so they do not stack and repeat
+  var historyExists = document.querySelector(".list_history")
+  if (historyExists !== null) {
+    var historyElements = document.querySelectorAll(".list_history");
+    for (i = 0; i < historyElements.length; i++) {
+      historyElements[i].remove()
+    }
+  }
+
+  //Creating elements that are in the local storage variable (searchHistory)
+  for (i = 0; i < search.length; i++) {
+    var historyEl = document.querySelector(".dropdown-content");
+    var historyNew = document.createElement('div');
+    historyNew.innerHTML = search[i] // + "<hr class='dropdown-divider'>"
+    historyNew.classList = "list_history dropdown-item"
+
+    var divider = document.createElement('div');
+    divider.innerHTML = "<hr class='dropdown-divider'>"
+    historyEl.appendChild(historyNew) // Creating HTML element with the search history
+    historyEl.appendChild(divider) // putting in list divider that is in the Bulma framework
+
+  }
+}
+
+function getHistory(search) {
+  search = localStorage.getItem('searchHistory');
+  if (search) {
+    search = JSON.parse(search);
+  } else {
+    search = [];
+  }
+  return search;
+}
+
+function saveSearchToStorage() {
+  localStorage.setItem("searchHistory", JSON.stringify(search));
+}
+
+
+function startYoutubeSearch() {
+  // getting local storage variables
+  search = getHistory(search);
+  // adding new search to storage variable
+  search.push(movie)
+  // saving variable to local storage
+  saveSearchToStorage()
+
   movieEl.value = "";
   SEARCH_QUERY = movie + ' movie trailer';
 
   video = searchMovieId(video) //getting back video id
-console.log( video)
   
-  
+  makeHistoryElement()
+}
+
+// ReSearching for movie when history movie list item is selected
+var parentElements = document.querySelector('.dropdown-content')
+parentElements.addEventListener("click", function (event) {
+  console.log(event.target.innerHTML);
+  //Setting variable movie to the movie that user has clicked in history drop down menu
+  movie = event.target.innerHTML;
+  startYoutubeSearch()
 })
 
 
-// Keeping the history saved for previous searches
-// var searchHistory = (localStorage.searchHistory) ? JSON.parse(localStorage.searchHistory) : [];
-// document.querySelector("").addEventListener("click", () => {
-//   searchHistory.push(document.querySelector("").value);
-//   localStorage.searchHistory = JSON.stringify(searchHistory);
+// omdbapi.com
+var $Form = $('form'), $Container = $('#container');
+$Container.hide();
+$Form.on('submit', function (p_oEvent) {
+  var sUrl, sMovie;
+  p_oEvent.preventDefault();
+  sMovie = $Form.find('input').val();
+  sUrl = 'https://www.omdbapi.com/?t=' + 'cars' + '&apikey=205fe796'
+  fetch(sUrl)
+    .then(response => response.json())
+    .then(data => {
 
-// });
-// document.querySelector("").addEventListener("", () => {
-//   var data = document.querySelector("");
-//   data.innerHTML = "";
-//   searchHistory.forEach((search) => {
-//     data.innerHTML = "" + data.innerHTML;
-//     data.querySelector("").innerText = search;
-//   });
-// });
-//Will look at class tags from html to add in order to work
+
+      console.log(data)
+    });
+
+});
+
+
+// Bulma history dropdown toggle
+var dropdown = document.querySelector('.dropdown');
+dropdown.addEventListener('click', function (event) {
+  event.stopPropagation();
+  dropdown.classList.toggle('is-active');
+});
+
+
+

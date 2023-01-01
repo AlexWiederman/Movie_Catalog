@@ -9,49 +9,33 @@ body {
   background-position: center;
  }
 
-header {
+.header {
     color:  #CC99CC;
     font-family: 'Titan One', cursive;
     text-align: center;
-    font-size: 35px;
+    font-size: 60px;
+    line-height: 3.7;
     
 }
 
-   
-
-.h4 {
-    color:  #CC99CC;
-    font-family: 'Bungee Shade', cursive;
+.header1 {
+  color:  #CC99CC;
+  font-family: 'Titan One', cursive;
+  text-align: center;
+  font-size: 40px;
+  line-height: 2.7;
+  
 }
 
-.img{
+
+
+.img {
   border-radius: 15px;
   border: 5px solid #9900FF;
   box-shadow: 0 0 10px #8ac4ff;
-
-}
-
-
-.but {
-    border-radius: 15px;
-    background-color: #c7120c;
-    color: #FFFFFF;
-    font-size: 15px;
-    padding: 10px;
-    width: 100px;
-   ;
-  }
-    
-  
+ }
 
 
-  .theater {
-    border-radius: 150px;
-    font-size: 15px;
-    padding: 12px;
-    width: 200px;
-    box-shadow: 0 0 10px #000 inset
-  }
 
 
   .movie {
@@ -62,7 +46,6 @@ header {
     padding: 10px;
     width: 200px;
     border-radius: 15px;
-    box-shadow: 0 0 10px #000 inset;
   }
 
   
@@ -70,7 +53,7 @@ header {
   nav {
     display: flex;
     justify-content: right;
-    margin-top: 5%;
+   
   }
   
   button {
@@ -104,23 +87,34 @@ header {
 
   .movie:hover {
     font-size: 60%;
-    box-shadow: 0 0 10px #000 inset;
   }
   
 
   .h2 {
     font-family: 'Bungee Shade', cursive;
     font-size: 40px;
-    color: antiquewhite;
+    color: #CC99CC;
+   
   }
+  
 
 
   footer { 
-    margin: 0 .5%;
+  
     border-radius: 15px;
-    padding: 19px;
-    background-color: #CC33FF ;
+    padding: 50px;
+    background-color: #b062ca ;
   
   }
+
+  .list_history:hover {
+    cursor:pointer;
+
+  }
+
+  .footer{
+    padding: 0% !important;
+  }
+
   
   
