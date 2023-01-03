@@ -113,7 +113,7 @@ function makeHistoryElement() {
     var divider = document.createElement('div');
     divider.innerHTML = "<hr class='dropdown-divider'>"
     historyEl.appendChild(historyNew) // Creating HTML element with the search history
-    historyEl.appendChild(divider) // putting in list divider that is in the Bulma framework
+//     historyEl.appendChild(divider) // putting in list divider that is in the Bulma framework
 
   }
 }
