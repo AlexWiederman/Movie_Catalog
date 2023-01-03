@@ -11,19 +11,19 @@ body {
 
 .header {
     color:  #CC99CC;
-    font-family: 'Titan One', cursive;
+    font-family: 'Bungee Shade', cursive;
     text-align: center;
-    font-size: 60px;
-    line-height: 3.7;
+    font-size: 70px;
+    line-height: 2.0;
     
 }
 
 .header1 {
   color:  #CC99CC;
-  font-family: 'Titan One', cursive;
+  font-family: 'Bungee Shade', cursive;
   text-align: center;
-  font-size: 40px;
-  line-height: 1.7;
+  font-size: 20px;
+  line-height: 5.3;
   
 }
 
@@ -95,6 +95,7 @@ body {
     font-family: 'Bungee Shade', cursive;
     font-size: 40px;
     color: #CC99CC;
+    line-height: 4.3;
    
   }
   
@@ -124,11 +125,16 @@ body {
     background-color: #aba8ca;
     position: absolute;
     text-align: right;
-    right: 10%;
+    right: 50%;
     width: 230px;
     height: auto;
     border: 3px solid rgb(161, 51, 156);
   }
 
+  .search-input{
+    margin: auto;
+    padding: 10px;
+    border: blueviolet;
+}
   
   
