@@ -9,8 +9,9 @@ Go to https://alexwiederman.github.io/Movie_Catalog/ to view the webpage.
 
 
 ## Usage
-This website uses two APIs to display information about a movie. Enter in the movie title and click the search button.
+This website uses two APIs to display information about a movie. Enter in the movie title and click the search button. Information such as the movie rating and genre will display and a movie trailer.
 
 ## License
 Reference the repo on Github to see details on the license.
+
 
