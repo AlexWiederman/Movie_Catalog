@@ -117,15 +117,18 @@ body {
     padding: 0% !important;
   }
 
-  div.c {
+ 
+
+  .center {
     color: black;
     background-color: #aba8ca;
     position: absolute;
-    right: 195px;
+    text-align: right;
+    right: 10%;
     width: 230px;
-    height: 650px;
+    height: auto;
     border: 3px solid rgb(161, 51, 156);
-  } 
+  }
 
   
   

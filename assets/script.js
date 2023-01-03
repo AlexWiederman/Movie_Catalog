@@ -147,6 +147,8 @@ function startYoutubeSearch() {
   video = searchMovieId(video) //getting back video id
   
   makeHistoryElement()
+  // Calling omdbapi for info
+  omdbapi()
 }
 
 // ReSearching for movie when history movie list item is selected
@@ -159,23 +161,39 @@ parentElements.addEventListener("click", function (event) {
 })
 
 
+var title
+var release
+var rating
+var runtime
+var genre
+var textEl = document.querySelector(".c")
 // omdbapi.com
-var $Form = $('form'), $Container = $('#container');
-$Container.hide();
-$Form.on('submit', function (p_oEvent) {
-  var sUrl, sMovie;
-  p_oEvent.preventDefault();
-  sMovie = $Form.find('input').val();
-  sUrl = 'https://www.omdbapi.com/?t=' + 'cars' + '&apikey=205fe796'
+function omdbapi() {
+  var sUrl;
+
+  sUrl = 'https://www.omdbapi.com/?t=' + movie + '&apikey=205fe796'
   fetch(sUrl)
     .then(response => response.json())
     .then(data => {
+      console.log(data);
+      console.log("Movie Title" + data.Title);
+      title = data.Title;
+      release = data.Released;
+      rating = data.imdbRating;
+      runtime = data.Runtime;
+      genre = data.Genre;
 
+      var divider = document.createElement('div');
 
-      console.log(data)
+      divider.innerHTML = "Title: " + title + "<br>" + "Release Date: " + release + "<br>"+  "imbd Rating: " + rating + "<br>" +"Runtime: " + runtime + "<br>" + "Genre: " + genre
+      divider.classList = "center"
+      textEl.appendChild(divider) // Creating HTML element with the search history
+    
+
     });
+}
 
-});
+
 
 
 // Bulma history dropdown toggle
