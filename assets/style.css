@@ -23,13 +23,14 @@ body {
   font-family: 'Titan One', cursive;
   text-align: center;
   font-size: 40px;
-  line-height: 2.7;
+  line-height: 1.7;
   
 }
 
 
 
 .img {
+  height: 300px !important;
   border-radius: 15px;
   border: 5px solid #9900FF;
   box-shadow: 0 0 10px #8ac4ff;
@@ -60,11 +61,11 @@ body {
     font-family: 'Bungee Shade', cursive;
     width: 150px;
     margin: 0 .5%;
-    font-size: 60%;
+    font-size: 89%;
     color:black;
     background-color:#9900FF ;
     border-radius: 15px;
-    box-shadow: 0 0 10px #8ac4ff;
+    box-shadow: 0 0 10px #0a549e;
   }
   
   
@@ -112,9 +113,19 @@ body {
 
   }
 
-  .footer{
+  .footer {
     padding: 0% !important;
   }
+
+  div.c {
+    color: black;
+    background-color: #aba8ca;
+    position: absolute;
+    right: 195px;
+    width: 230px;
+    height: 650px;
+    border: 3px solid rgb(161, 51, 156);
+  } 
 
   
   
