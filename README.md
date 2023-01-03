@@ -1,5 +1,7 @@
 # Movie Catalog
 
+<img width="952" alt="project 1" src="https://user-images.githubusercontent.com/115883489/210460697-79125dc9-350d-4c1d-9dfe-fa23a106d46f.PNG">
+
 ## Description
 This is a website that displays a trailer and other information on a movie that the user will enter.
 
