@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,94 +13,95 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link rel="stylesheet" href="./assets/style.css">
   <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-  
+
   <title>Movie Catalog</title>
 </head>
 
 
 
 <!-- Header -->
-  <header>
-    <h1 class="header" class="title">Movie Catalog</h1>
-    <h2 class="header1" class="subtitle">Subtitle</h2>
-    <nav>
-      <button>Home</a></button>
-      <button><a href="https://screenrant.com/movie-news/">News</a></button>
-      <button><a href="https://thefilm.blog/"> Blogs</a></button>
-      <button><a href="https://www.regmovies.com/theatres">Theater</a></button>
-     </nav>
+<header>
+  <h1 class="header" class="title">Movie Catalog</h1>
+  <h2 class="header1" class="subtitle">Subtitle</h2>
+  <nav>
+    <button>Home</a></button>
+    <button><a href="https://screenrant.com/movie-news/">News</a></button>
+    <button><a href="https://thefilm.blog/"> Blogs</a></button>
+    <button><a href="https://www.regmovies.com/theatres">Theater</a></button>
+  </nav>
 </header>
 
 
 
-  <body>
+<body>
 
-   
-<main>
 
-  <!-- Movie search and Click button -->
-      <section class="movie">
-        <div>
-          <div class="content has-text-centered">
-            <main>
-              <div class="field has-addons">
-                <div class="control">
-                  <div class="youtube">
+  <main>
 
-                    <input class="movie input" type="text" placeholder="Find a Movie">
-                    <br><button class="movie search">Click!</button>
-                  </div>
-
-                </div>
-              </div>
-            </section>
-
-            <section>
-              <!-- Bulma Drop down history list -->
-              <div class="dropdown is-active">
-                <div class="dropdown-trigger">
-                  <button class="button" aria-haspopup="true" aria-controls="dropdown-menu2">
-                    <span>Search History</span>
-                    <span class="icon is-small">
-                      <i class="fas fa-angle-down" aria-hidden="true"></i>
-                    </span>
-                  </button>
-                </div>
-                <div class="dropdown-menu" id="dropdown-menu2" role="menu">
-                  <div class="dropdown-content">
-                    <!-- Javascript history items is created here for each search history -->
-                  </div>
-                </div>
-              </div>
-
-              <div id="container">
-            </div>
-            </section>
-
-            <article>
-              <div>
-             
-            <div class="c">Things don’t exactly get off to a promising start with Black Adam. It’s all a bit Scorpion King – and not only because of the Dwayne Johnson connection. There’s an oddly echo laden narration. The grading is dire. As for the narrative itself, it all feels immediately suffocated by its grandiose sense of self importance. The mythos is as nonsensical as the setting is bizarrely groundless. Somewhere Middle Eastern, potentially but inconclusively on a different planet, and yet in an age long before the pyramids were built. Not that you’d think it from the fashion. A more adventurous romp will eventually ascend from the hogwash but only in the sense that it’s prelude achieved such a sterling feat in crippling expectations.</div>
-          </div>
-          </article>
-      
-   
-
-<section>
-<!-- Movie Posters -->
+    <!-- Movie search and Click button -->
+    <section class="movie">
       <div>
-        <h2 class="h2">Showing Know!</h2>
-        <img  class="img" src="./assets/img/avatar-the-way-of-water-movie-poster.jpg" alt="Girl in a jacket" width="180" height="300">
-        <img  class="img" src="./assets/img/black-panther-wakanda-forever-movie-poster.jpg" alt="Girl in a jacket" width="180" height="300">
-        <img  class="img" src="./assets/img/the-menu-movie-poster.jpg" alt="Girl in a jacket" width="180" height="300">
-        <img  class="img" src="./assets/img/violent-night-british-movie-poster.jpg" alt="Girl in a jacket" width="180" height="300">
-    
+        <div class="content has-text-centered">
+          <main>
+            <div class="field has-addons">
+              <div class="control">
+                <div class="youtube">
+
+                  <input class="movie input" type="text" placeholder="Find a Movie">
+                  <br><button class="movie search">Click!</button>
+                </div>
+
+              </div>
+            </div>
+    </section>
+
+    <section>
+      <!-- Bulma Drop down history list -->
+      <div class="dropdown is-active">
+        <div class="dropdown-trigger">
+          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu2">
+            <span>Search History</span>
+            <span class="icon is-small">
+              <i class="fas fa-angle-down" aria-hidden="true"></i>
+            </span>
+          </button>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu2" role="menu">
+          <div class="dropdown-content">
+            <!-- Javascript history items is created here for each search history -->
+          </div>
+        </div>
       </div>
 
- </section>
+      <div id="container">
+      </div>
+      <div class="c"></div>
+    </section>
 
     
-<!-- Javascript -->
+
+
+
+
+
+    <section>
+      <!-- Movie Posters -->
+      <div>
+        <h2 class="h2">Showing Now!</h2>
+        <img class="img" src="./assets/img/avatar-the-way-of-water-movie-poster.jpg" alt="Girl in a jacket" width="180"
+          height="300">
+        <img class="img" src="./assets/img/black-panther-wakanda-forever-movie-poster.jpg" alt="Girl in a jacket"
+          width="180" height="300">
+        <img class="img" src="./assets/img/the-menu-movie-poster.jpg" alt="Girl in a jacket" width="180" height="300">
+        <img class="img" src="./assets/img/violent-night-british-movie-poster.jpg" alt="Girl in a jacket" width="180"
+          height="300">
+
+      </div>
+
+    </section>
+
+
+    <!-- Javascript -->
     <div id="map_div" style="height: 400px;"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./assets/script.js"></script>
@@ -109,20 +109,21 @@
 
     <script src="https://www.youtube.com/iframe_api"></script>
 
-    
-      <!-- footer by bulma -->
-  <footer>
-        <div>
-          <p>
-            <strong>Movie Catalog</strong> by <a href="https://jgthms.com">Alex Wiederman, Taylor Brandon and Reinaldo Santana </a>. The source code is licensed
-            <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-            is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
-          </p>
-        </div>
-      </footer>
 
-           </main>
+    <!-- footer by bulma -->
+    <footer>
+      <div>
+        <p>
+          <strong>Movie Catalog</strong> by <a href="https://jgthms.com">Alex Wiederman, Taylor Brandon and Reinaldo
+            Santana </a>. The source code is licensed
+          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+          is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+        </p>
+      </div>
+    </footer>
 
-        </body>
-   
-        </html>
+  </main>
+
+</body>
+
+</html>
