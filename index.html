@@ -24,10 +24,10 @@
   <h1 class="header" class="title">Movie Catalog</h1>
   <h2 class="header1" class="subtitle">Subtitle</h2>
   <nav>
-    <button>Home</a></button>
-    <button><a href="https://screenrant.com/movie-news/">News</a></button>
-    <button><a href="https://thefilm.blog/"> Blogs</a></button>
-    <button><a href="https://www.regmovies.com/theatres">Theater</a></button>
+    <button class="hhh3">Home</a></button>
+    <button class="hhh3"><a href="https://screenrant.com/movie-news/">News</a></button>
+    <button class="hhh3"><a href="https://thefilm.blog/"> Blogs</a></button>
+    <button class="hhh3"><a href="https://www.regmovies.com/theatres">Theater</a></button>
   </nav>
 </header>
 
@@ -36,91 +36,119 @@
 <body>
 
 
-  <main>
+  <!-- Movie search and Click button -->
+  <section class="movie">
+    <div>
+      <div class="content has-text-centered">
+        <main>
+          <div class="field has-addons">
+            <div class="control">
 
-    <!-- Movie search and Click button -->
-    <section class="movie">
-      <div>
-        <div class="content has-text-centered">
-          <main>
-            <div class="field has-addons">
-              <div class="control">
-                <div class="youtube">
-
-                  <input class="movie input" type="text" placeholder="Find a Movie">
-                  <br><button class="movie search">Click!</button>
-                </div>
-
-              </div>
+              <button class="hhh3" class="movie search">Click!</button>
+              <input class="movie input" type="text" placeholder="Find a Movie">
             </div>
-    </section>
 
-    <section>
-      <!-- Bulma Drop down history list -->
-      <div class="dropdown is-active">
-        <div class="dropdown-trigger">
-          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu2">
-            <span>Search History</span>
-            <span class="icon is-small">
-              <i class="fas fa-angle-down" aria-hidden="true"></i>
-            </span>
-          </button>
-        </div>
-        <div class="dropdown-menu" id="dropdown-menu2" role="menu">
-          <div class="dropdown-content">
-            <!-- Javascript history items is created here for each search history -->
+            <div class="youtube"></div>
+
           </div>
+      </div>
+  </section>
+
+  <section>
+    <!-- Bulma Drop down history list -->
+    <div class="dropdown is-active">
+      <div class="dropdown-trigger">
+        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu2">
+          <span>Search History</span>
+          <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+        </button>
+      </div>
+      <div class="dropdown-menu" id="dropdown-menu2" role="menu">
+        <div class="dropdown-content">
+          <!-- Javascript history items is created here for each search history -->
         </div>
       </div>
+    </div>
 
-      <div id="container">
-      </div>
-      <div class="c"></div>
-    </section>
-
-    
+    <div id="container">
+    </div>
+  </section>
 
 
+  <div class="c"></div>
 
 
 
-    <section>
-      <!-- Movie Posters -->
-      <div>
-        <h2 class="h2">Showing Now!</h2>
-        <img class="img" src="./assets/img/avatar-the-way-of-water-movie-poster.jpg" alt="Girl in a jacket" width="180"
-          height="300">
-        <img class="img" src="./assets/img/black-panther-wakanda-forever-movie-poster.jpg" alt="Girl in a jacket"
-          width="180" height="300">
-        <img class="img" src="./assets/img/the-menu-movie-poster.jpg" alt="Girl in a jacket" width="180" height="300">
-        <img class="img" src="./assets/img/violent-night-british-movie-poster.jpg" alt="Girl in a jacket" width="180"
-          height="300">
 
-      </div>
+  <section>
+    <!-- Movie Posters -->
+    <div>
+      <div class="content has-text-centered">
+        <main>
+          <div class="field has-addons">
+            <div class="control">
+              <div class="youtube">
 
-    </section>
+                <input class="movie input" type="text" placeholder="Find a Movie">
+                <br><button class="movie search">Click!</button>
+              </div>
+
+            </div>
+          </div>
+  </section>
+
+  <section>
+
+    <div id="container">
+    </div>
+    <div class="c"></div>
+  </section>
 
 
-    <!-- Javascript -->
-    <div id="map_div" style="height: 400px;"></div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="./assets/script.js"></script>
 
 
-    <script src="https://www.youtube.com/iframe_api"></script>
 
 
-    <!-- footer by bulma -->
-    <footer>
-      <div>
-        <p>
-          <strong>Movie Catalog</strong> by <a href="https://jgthms.com">Alex Wiederman, Taylor Brandon and Reinaldo
-            Santana </a>. The source code is licensed
-          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-          is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
-        </p>
-      </div>
-    </footer>
+
+  <section>
+    <!-- Movie Posters -->
+    <div>
+      <h2 class="h2">Showing Now!</h2>
+      <img class="img" src="./assets/img/avatar-the-way-of-water-movie-poster.jpg" alt="Girl in a jacket" width="180"
+        height="300">
+      <img class="img" src="./assets/img/black-panther-wakanda-forever-movie-poster.jpg" alt="Girl in a jacket"
+        width="180" height="300">
+      <img class="img" src="./assets/img/the-menu-movie-poster.jpg" alt="Girl in a jacket" width="180" height="300">
+      <img class="img" src="./assets/img/violent-night-british-movie-poster.jpg" alt="Girl in a jacket" width="180"
+        height="300">
+
+    </div>
+
+  </section>
+
+
+  <!-- Javascript -->
+  <div id="map_div" style="height: 400px;"></div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="./assets/script.js"></script>
+
+
+  <script src="https://www.youtube.com/iframe_api"></script>
+
+
+  <!-- footer by bulma -->
+  <footer>
+    <div>
+      <p>
+        <strong>Movie Catalog</strong> by <a href="https://jgthms.com">Alex Wiederman, Taylor Brandon and Reinaldo
+          Santana </a>. The source code is licensed
+        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+        is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+      </p>
+    </div>
+  </footer>
 
   </main>
 
