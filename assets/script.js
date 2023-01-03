@@ -169,6 +169,12 @@ var genre
 var textEl = document.querySelector(".c")
 // omdbapi.com
 function omdbapi() {
+  // Deleting elements if search already happened
+  var DescExists = document.querySelector(".center")
+  if (DescExists !== null) {
+    DescExists.remove()
+  }
+
   var sUrl;
 
   sUrl = 'https://www.omdbapi.com/?t=' + movie + '&apikey=205fe796'
@@ -188,8 +194,6 @@ function omdbapi() {
       divider.innerHTML = "Title: " + title + "<br>" + "Release Date: " + release + "<br>"+  "imbd Rating: " + rating + "<br>" +"Runtime: " + runtime + "<br>" + "Genre: " + genre
       divider.classList = "center"
       textEl.appendChild(divider) // Creating HTML element with the search history
-    
-
     });
 }
 
