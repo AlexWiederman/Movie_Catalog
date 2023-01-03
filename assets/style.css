@@ -57,7 +57,7 @@ body {
    
   }
   
-  .hhh3 {
+  button {
     font-family: 'Bungee Shade', cursive;
     width: 150px;
     margin: 0 .5%;
@@ -69,19 +69,19 @@ body {
   }
   
   
-  .hhh3:hover {
+ button:hover {
     background-color:#CC33FF  ;
     color: rgb(185, 136, 136);
   }
   
   
-  .hhh3:active {
+  button:active {
     font-size: 60%;
     box-shadow: 0 0 10px #000 inset;
   }
   
  
-  .hhh3:focus  {
+  button:focus  {
     outline: none;
     border-color: #8ac4ff;
   }
