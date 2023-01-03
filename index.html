@@ -1,67 +1,46 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Movie Catalog</title>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-</head>
-<nav>
-  <h1>Movie Catalog</h1>
-</nav>
-
-<body>
-  </div>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link rel="stylesheet" href="./assets/style.css">
-
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  
   <title>Movie Catalog</title>
+</head>
 
-  </head>
+
+
+<!-- Header -->
+  <header>
+    <h1 class="header" class="title">Movie Catalog</h1>
+    <h2 class="header1" class="subtitle">Subtitle</h2>
+    <nav>
+      <button>Home</a></button>
+      <button><a href="https://screenrant.com/movie-news/">News</a></button>
+      <button><a href="https://thefilm.blog/"> Blogs</a></button>
+      <button><a href="https://www.regmovies.com/theatres">Theater</a></button>
+     </nav>
+</header>
+
+
 
   <body>
 
-    <!-- Header -->
-    <header>
-      <h1>Movie Catalog</h1>
-      <h5>Welcome to the best place for</h5>
-      <nav>
-        <button>Home</button>
-        <button>News</button>
-        <button>Blogs</button>
-        <button>About</button>
-      </nav>
-    </header>
+   
+<main>
 
-
-    <main>
-
-
-      <section>
-        <div>
-          <aside>
-            <h3 class="h4">Search for Movie theater near you!</h3>
-            <form>
-              <input class="theater" type="text" placeholder="Movie Theater" />
-              <button class="but">Search!</button>
-              <div class="youtube">
-                <!-- Video player will apear here -->
-              </div>
-            </form>
-          </aside>
-        </div>
-      </section>
-
-      <section>
+  <!-- Movie search and Click button -->
+      <section class="movie">
         <div>
           <div class="content has-text-centered">
             <main>
@@ -70,12 +49,14 @@
                   <div class="youtube">
 
                     <input class="movie input" type="text" placeholder="Find a Movie">
-                    <button class="movie search">Click!</button>
+                    <br><button class="movie search">Click!</button>
                   </div>
 
                 </div>
               </div>
+            </section>
 
+            <section>
               <!-- Bulma Drop down history list -->
               <div class="dropdown is-active">
                 <div class="dropdown-trigger">
@@ -93,44 +74,34 @@
                 </div>
               </div>
 
-
-              <!-- Movie API -->
-              <form>
-                <label>
-                  <input type="text" name="movie" placeholder="movie title" />
-                </label>
-                <button>Go!</button>
-              </form>
-
               <div id="container">
-                <h3 class="title">Title</h3>
-                <p class="plot">Plot</p>
-                <span class="poster">Poster</span>
-                <span class="year">Year</span>
-                <!--	
-                <span>TODO: IMDB Rating / Votes</span>
-                <span>TODO: Tomatoes Rating / Votes /Image</span>
-            -->
-              </div>
-      </section>
+            </div>
+            </section>
 
+            <article>
+              <div>
+             
+            <div class="c">Things don’t exactly get off to a promising start with Black Adam. It’s all a bit Scorpion King – and not only because of the Dwayne Johnson connection. There’s an oddly echo laden narration. The grading is dire. As for the narrative itself, it all feels immediately suffocated by its grandiose sense of self importance. The mythos is as nonsensical as the setting is bizarrely groundless. Somewhere Middle Eastern, potentially but inconclusively on a different planet, and yet in an age long before the pyramids were built. Not that you’d think it from the fashion. A more adventurous romp will eventually ascend from the hogwash but only in the sense that it’s prelude achieved such a sterling feat in crippling expectations.</div>
+          </div>
+          </article>
+      
+   
 
-      <section>
-        <aside>
-          <h2 class="h2">Showing Know!</h2>
-          <a><img class="img" class="" src="./assets/img/avatar-the-way-of-water-movie-poster.jpg"
-              alt="Girl in a jacket" width="180" height="300"></a>
-          <img class="img" class="" src="./assets/img/black-panther-wakanda-forever-movie-poster.jpg"
-            alt="Girl in a jacket" width="180" height="300">
-          <img class="img" class="" src="./assets/img/the-menu-movie-poster.jpg" alt="Girl in a jacket" width="180"
-            height="300">
-          <img class="img" class="" src="./assets/img/violent-night-british-movie-poster.jpg" alt="Girl in a jacket"
-            width="180" height="300">
-        </aside>
-      </section>
+<section>
+<!-- Movie Posters -->
+      <div>
+        <h2 class="h2">Showing Know!</h2>
+        <img  class="img" src="./assets/img/avatar-the-way-of-water-movie-poster.jpg" alt="Girl in a jacket" width="180" height="300">
+        <img  class="img" src="./assets/img/black-panther-wakanda-forever-movie-poster.jpg" alt="Girl in a jacket" width="180" height="300">
+        <img  class="img" src="./assets/img/the-menu-movie-poster.jpg" alt="Girl in a jacket" width="180" height="300">
+        <img  class="img" src="./assets/img/violent-night-british-movie-poster.jpg" alt="Girl in a jacket" width="180" height="300">
+    
+      </div>
 
-    </main>
+ </section>
 
+    
+<!-- Javascript -->
     <div id="map_div" style="height: 400px;"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./assets/script.js"></script>
@@ -138,18 +109,20 @@
 
     <script src="https://www.youtube.com/iframe_api"></script>
 
-    <footer class="footer">
-      <div class="content has-text-centered">
-        <p>
-          <input type="text" placeholder="" />
-          <button class="but">Submit</button> -->
-          <strong>Movie Catalog</strong> by <a href="https://jgthms.com">Alex Wiederman, Taylor Brandon and Reinaldo
-            Santana </a>. The source code is licensed
+    
+      <!-- footer by bulma -->
+  <footer>
+        <div>
+          <p>
+            <strong>Movie Catalog</strong> by <a href="https://jgthms.com">Alex Wiederman, Taylor Brandon and Reinaldo Santana </a>. The source code is licensed
+            <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+            is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+          </p>
+        </div>
+      </footer>
 
-    </footer>
+           </main>
 
-  </body>
-
-
-
-</html>
+        </body>
+   
+        </html>
